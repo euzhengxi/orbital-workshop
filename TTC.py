@@ -81,15 +81,18 @@ def revert(gameboard, action):
 
 
 def TTC(state):
-    gameboard = [[int(state[0]), int(state[1]), int(state[2])], 
-                 [int(state[3]), int(state[4]), int(state[5])], 
-                 [int(state[6]), int(state[7]), int(state[8])]]
+    gameboard = []
+    for i in range(3):
+        row = []
+        for j in range(3):
+            row.append(int(state[i*3 + j]))
+        gameboard.append(row)
+
     initial = numStates(gameboard)
     if initial == 9:
         move = [1, (1, 1)]
     else:
         (value, move) = maxplayer(gameboard, -10000, 10000, 4, initial)
-        print(move)
     return move
 
 def prettyprint(gameboard):
@@ -134,5 +137,5 @@ def minplayer(gameboard, alpha, beta, depth, initial):
     return (v, move)
 
 #gameboard is a 2d array
-#print(TTC("000000000"))
+print(TTC("000000000"))
 
