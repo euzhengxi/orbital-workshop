@@ -137,5 +137,5 @@ def minplayer(gameboard, alpha, beta, depth, initial):
     return (v, move)
 
 #gameboard is a 2d array
-print(TTC("000000000"))
+#print(TTC("000000000"))
 
